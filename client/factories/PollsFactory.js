@@ -59,17 +59,20 @@ app.factory('pollsFactory', function($http, $location){
 
 // CREATE + + + + + + + + + + + + + + + + + +
     factory.create = function(newpoll,callback){
-      console.log('CLIENT POLLS FACTORY - MAKING NEW....');
+      console.log('CLIENT POLLS FACTORY - MAKING NEW....',newpoll);
+
+
       // check to be sure there is a name and some content
-      if(!newpoll.question || !newpost.option1.length<3){
+      if(true == false){
           alert('Must enter a question and all four options!');
           $location.path('/create');
       } else {
           $http.post('/polls', newpoll).then(function(returned_data){
-            console.log('Client POLLS - attempt to create new poLL returned: ', returned_data.data);
+            //console.log('Client POLLS - attempt to create new poLL returned: ', returned_data.data);
             if (typeof(callback) == 'function'){
-              curPoLL = returned_data.data;
-              callback(returned_data.data);
+               console.log('CLIENT FACTORY SAYS SUCCESS POLL CREAATED',returned_data);
+            //   curPoLL = returned_data.data;
+              callback(returned_data);
             }
           });
        }

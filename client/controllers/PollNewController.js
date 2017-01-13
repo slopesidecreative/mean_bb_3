@@ -13,30 +13,28 @@ sessionFactory.getCurUser(function(data){
    if(typeof(data.data) == 'string'){
        $location.path('/');
       }else{
-         console.log('got it!!', data);
-         $scope.cur_user = data;
+         //console.log('got it!!', data.data.data.curUser);
+         $scope.cur_user = data.data.data.curUser;
       }
 });
-   //  sessionFactory.getCurUser(function(data){
-   //    console.log('Polls create controller got the current user: ',data.data.data.curUser);
-   //    $scope.cur_user = data.data.data.curUser;
-   //    if(!$scope.cur_user){
-   //       $location.url('/');
-   //    }
-   // });
+
 /* LOCKDOWN + + + + + + + + + + + + + + +  */
 
-$scope.addPoll = function(){
+$scope.createPoll = function(){
    $scope.errors = [];
    console.log('$ CREATE THIS POLL: ', $scope.newPoll);
+   $scope.newPoll.created_by = $scope.cur_user._id;
+   console.log('FINAL make this poll:',$scope.newPoll);
    pollsFactory.create( $scope.newPoll, function newPollCreated(newPoll){
+
+      console.log("!!!YES created New POLL",newPoll);
 
       // HANDLE ERRORS
       // - check for all other validations
-      if ( newPost.hasOwnProperty('errors') ) {
-           for (var key in newPost.errors) {
-              if (newPost.errors.hasOwnProperty(key)) {
-                 var obj = newPost.errors[key];
+      if ( newPoll.hasOwnProperty('errors') ) {
+           for (var key in newPoll.errors) {
+              if (newPoll.errors.hasOwnProperty(key)) {
+                 var obj = newPoll.errors[key];
                  for (var prop in obj) {
                     if (obj.hasOwnProperty(prop) && prop == 'message') {
                         //alert(obj[prop]);

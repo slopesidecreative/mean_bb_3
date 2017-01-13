@@ -5,6 +5,7 @@ var mongoose   =  require('mongoose');
 var moment     =  require('moment');
 
 var Users      =  mongoose.model('User');
+var Polls      =  mongoose.model('Poll');
 
 module.exports = {
 // "/dashboard"
@@ -52,7 +53,7 @@ create: function(req,res){
                name: "Server error"
             });
       }else{
-         console.log('YEAH! POLL: ',newpoll);
+         //console.log('YEAH! POLL: ',newpoll);
          res.json(newpoll);
       }
    })
