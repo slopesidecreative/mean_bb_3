@@ -1,5 +1,5 @@
-app.controller('indexController', ['$scope','sessionFactory', '$location','moment',
-function($scope, sessionFactory, $location, moment) {
+app.controller('indexController', ['$scope','sessionFactory','pollsFactory', '$location','moment',
+function($scope, sessionFactory, pollsFactory, $location, moment) {
 
 /* LOCKDOWN + + + + + + + + + + + + + +  */
    $scope.cur_user = null;
@@ -26,10 +26,10 @@ var index = function() {
    // CURRENT USER IS SET DURING LOGIN VERIFICATION AS $scope.cur_user
 
    // GET DATA
-   //  postsFactory.index(function beingPassedToTheFactoryIndexByThisController(postsFromTheFactory) {
-   //     $scope.posts = postsFromTheFactory;
-   //     console.log('GOT ME POSTS: ',$scope.posts);
-   //  });
+    pollsFactory.index(function cb(pollsFromTheFactory) {
+       $scope.polls = pollsFromTheFactory;
+       console.log('GOT ME POLLZ to display now: ',$scope.polls);
+    });
 
 }
 

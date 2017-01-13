@@ -11,27 +11,40 @@ module.exports = {
 // "/dashboard"
 // Index - show all
 index: function (req, res){
-   console.log('USER->INDEX');
-   Users.find({}, function(err, data) {
-      //console.log('DB returned: ',data);
-      if(err){
-         console.log('Server error! Could not fetch data!');
-         res.json({
-                 errors: {
-                     users: {
-                         message: "Server error! Could not fetch data!",
-                         kind: "what didn't work",
-                         path: "reference to the schema's name",
-                         value: "cause of the initial error"
-                     }
-                 },
-                 name: "Server error"
-             });
-      }else{
-         //console.log('success: ',data);
+   console.log('POLLS->INDEX');
+   // Polls.find({}, function(err, data) {
+
+   Polls.find({})
+      .sort({created_at: -1})
+      .populate('created_by')
+      .exec(function(err, data) {
+        console.log('get polls executed',data);
+         //res.render('index', {posts: data, moment:moment});
          res.json(data);
-      }
-   })
+      });
+
+
+
+
+   //    //console.log('DB returned: ',data);
+   //    if(err){
+   //       console.log('Server error! Could not fetch data!');
+   //       res.json({
+   //               errors: {
+   //                   users: {
+   //                       message: "Server error! Could not fetch data!",
+   //                       kind: "what didn't work",
+   //                       path: "reference to the schema's name",
+   //                       value: "cause of the initial error"
+   //                   }
+   //               },
+   //               name: "Server error"
+   //           });
+   //    }else{
+   //       //console.log('success: ',data);
+   //       res.json(data);
+   //    }
+   // })
 },
 create: function(req,res){
    console.log('Create POLL: ',req.body);

@@ -25,9 +25,8 @@ $scope.createPoll = function(){
    console.log('$ CREATE THIS POLL: ', $scope.newPoll);
    $scope.newPoll.created_by = $scope.cur_user._id;
    console.log('FINAL make this poll:',$scope.newPoll);
-
+// front end validations
  $scope.validated_poll = false;
-
  if($scope.newPoll.question){
     if($scope.newPoll.question.length > 7){
       if($scope.newPoll.option1){
@@ -50,24 +49,9 @@ $scope.createPoll = function(){
    }
 }
 
-
-
-// if($scope.newPoll.question.length < 8){
-//    alert('Question must be entered and longer.');
-// }else if(
-//    $scope.newPoll.option1.length > 2 &&
-//    $scope.newPoll.option2.length > 2 &&
-//    $scope.newPoll.option3.length > 2 &&
-//    $scope.newPoll.option4.length > 2
-// ){
-//    $scope.validated_poll = true;
-// }
-
-
- console.log($scope.validated_poll);
+//console.log($scope.validated_poll);
 if($scope.validated_poll == true){
    pollsFactory.create( $scope.newPoll, function newPollCreated(newPoll){
-
       console.log("created New POLL?",newPoll);
 
       // HANDLE ERRORS
@@ -94,7 +78,7 @@ if($scope.validated_poll == true){
       }
    });
 
-}else{
+}else{ // the inputs were not validated
    alert('Ask and appropriate question and add all options, please.');
 }
 

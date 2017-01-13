@@ -83,6 +83,11 @@ app.post('/polls', function (req, res){
    Polls.create(req,res);
 });
 
+app.get('/polls', function (req, res){
+   console.log(' GET POLLS /polls  ');
+   Polls.index(req,res);
+});
+
       // // GET "/messages"
       // // Root - show all
       // app.get('/messages', function (req, res){
