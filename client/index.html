@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- STYLES + + + + + + + + + + + + + + + + + + + + + + + + +  -->
+<link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap-theme.css">
+<link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap-theme.css">
+<link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap-theme.css">
+<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css">
+<!-- BOWER + + + + + + + + + + + + + + + + + + + + + + + + +  -->
+<script src="jquery/dist/jquery.js"></script>
+<script src='angular/angular.js'></script>
+<script src='angular-route/angular-route.js'></script>
+<script src="moment/moment.js"></script>
+<script src="angular-moment/angular-moment.js"></script>
+<script src="angular-cookies/angular-cookies.js"></script>
+<!-- ANGULAR APP + + + + + + + + + + + + + + + + + + + + + + +  -->
+<script src='app.js'></script>
+<script src='/controllers/IndexController.js'></script>
+<!-- LOGIN AND REGISTRATION + + + + + + + + + + + + + ++ + + +  -->
+<script src='/controllers/SessionController.js'></script>
+<script src='/factories/SessionFactory.js'></script>
+<!-- USERS + + + + + + + + + + + + + + + + + + + + + + + + + +  -->
+<script src='/factories/UsersFactory.js'></script>
+<script src='/controllers/user/UserEditController.js'></script>
+<script src='/controllers/user/UserShowController.js'></script>
+<script src='/controllers/user/UserNewController.js'></script>
+<!-- MESSAGE BOARD + + + + + + + + + + + + + + + + + + + + + + + +  -->
+<!--
+<script src='/factories/PostsFactory.js'></script>
+<script src='/factories/CommentsFactory.js'></script>
+<script src='/controllers/messageboard/PostsNewController.js'></script>
+<script src='/controllers/messageboard/PostsShowController.js'></script>
+<script src='/controllers/messageboard/CommentsNewController.js'></script>
+-->
+
+
+<!-- ROUTES + + + + + + + + + + + + + + + + + + + + + + + + +  -->
+<script src='/config/Routes.js'></script>
+
+<title>Index</title>
+</head>
+
+<body ng-app="app">
+
+<div class='container-fluid' ng-view>
+
+</div>
+
+
+</body>
+</html>

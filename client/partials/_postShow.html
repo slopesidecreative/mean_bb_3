@@ -1,0 +1,48 @@
+
+
+
+<div class="row">
+   <div class="col-xs-2 col-md-2">
+      <a href="#!/">Home</a> | <a href="/#!/question/{{post._id}}/new_answer">Answer This Question</a>
+   </div>
+   <div class="col-xs-8 col-md-8">
+         <hr/>
+         <h3>Question</h3>
+         <hr/>
+         <ul style='list-style:none;'>
+            <li style="font-size: 1.5em;font-weight:bold;font-style:italic;">"{{ post.content }}"</li>
+            <li style="padding-left:30px;">- {{ post.postedby }}</li>
+            <li style="padding-left:30px; padding-bottom:30px;">- {{ post.created_at  |  amDateFormat: 'YYYY-MM-DD' }}</li>
+               <h3>Answers</h3>
+               <table class="table table-striped">
+                  <tr ng-repeat="comment in post.comments | orderBy: 'votes': true">
+                     <td>
+                        <h3>{{comment.content}}</h3>
+                        <p> by: {{comment.commentby}}</p>
+                        <p> votes: {{comment.votes}}</p>
+                        <span ng-if="allowVoting"><span ng-click="vote(true,comment._id)"> LIKE</span></span>
+                        <span ng-if="allowVoting"><span ng-click="vote(false,comment._id)">DISLIKE</span></span><br/><br/>
+
+                        <h4>Add A Comment:</h4>
+                        <form>
+                           <label for="name">Name:</label><br/>
+                           <input type="text" name="name" ng-model="newCommentComment.commentby"><br/>
+                           <label for="content">Comment:</label><br/>
+                           <textarea name="content" rows="4" cols="40" ng-model="newCommentComment.content"></textarea><br/>
+                           <button type='submit' ng-click="addCommentComment(comment._id)">Add New Comment</button>
+                        </form>
+                        <br/>
+                        <h4>Comments:</h4>
+                        <p ng-repeat="comment in comment.comments track by $index">
+                           {{comment._id}}<br/><br/>
+                        </p>
+                     </td>
+                  </tr>
+               </table>
+         </ul>
+         <hr/>
+   </div>
+   <div class="col-xs-2 col-md-2">
+      <a href="/logout">Logout</a>
+   </div>
+</div>

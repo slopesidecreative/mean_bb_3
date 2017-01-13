@@ -1,0 +1,21 @@
+<div class="row">
+   <div class="col-sm-1 col-md-1 col-lg-1"></div>
+   <div class="col-sm-10 col-md-10 col-lg-10">
+      <form>
+         <label for="first_name">First Name</label>
+         <input type="text" name="first_name" ng-model = 'nC.user.first_name' required><br/>
+         <label for="first_name">Last Name</label>
+         <input type="text" name="last_name" ng-model = 'nC.user.last_name' required><br/>
+         <label for="email">Email</label>
+         <input type="text" name="email" ng-model = 'nC.user.email' required><br/>
+         <label for="first_name">Birthday</label>
+         <input type="date" name="birthday" ng-model = 'nC.user.birthday' required pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" ><br/>
+         <label for="password">Password</label>
+         <input type="password" name="password" ng-model = 'nC.user.password' required><br/>
+         <label for="password_verify">Password Verify</label>
+         <input type="password" name="password_verify" ng-model = 'nC.user.password_verify' required><br/>
+         <input type="submit" value = 'Add User' ng-click = "nC.addUser()"><br/>
+      </form>
+   </div>
+   <div class="col-sm-1 col-md-1 col-lg-1"></div>
+</div>

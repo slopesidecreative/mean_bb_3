@@ -1,0 +1,44 @@
+<div class="row">
+   <div class="col-sm-1 col-md-1 col-lg-1"></div>
+   <div class="col-sm-10 col-md-10 col-lg-10">
+<h2>Login</h2>
+<form name='userLoginForm'>
+    <p><input type="text" ng-model='loginUser.email' placeholder="email" required></p>
+    <p><input type="password" ng-model='loginUser.password' placeholder="password" required></p>
+    <button ng-click='login()' name="login">Login</button>
+</form>
+</div>
+<div class="col-sm-1 col-md-1 col-lg-1"></div>
+</div>
+
+<div class="row">
+   <div class="col-sm-1 col-md-1 col-lg-1"></div>
+   <div class="col-sm-10 col-md-10 col-lg-10">
+      <h2>Registration</h2>
+      <form>
+         <label for="first_name">First Name</label>
+         <input type="text" name="first_name" ng-model = 'user.first_name' required><br/>
+         <label for="first_name">Last Name</label>
+         <input type="text" name="last_name" ng-model = 'user.last_name' required><br/>
+         <label for="email">Email</label>
+         <input type="text" name="email" ng-model = 'user.email' required><br/>
+         <label for="first_name">Birthday</label>
+         <input type="date" name="birthday"
+            ng-model='user.birthday'
+            required pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))"
+            max="{{ageRequirement | date:'yyyy-MM-dd'}}">
+            <br/>
+         <label for="password">Password</label>
+         <input type="password" name="password" ng-model = 'user.password' required><br/>
+         <label for="password_verify">Password Verify</label>
+         <input type="password" name="password_verify" ng-model = 'user.password_verify' required><br/>
+         <input type="submit" value = 'Add User' ng-click = "addUser()"><br/>
+      </form>
+      <br/>
+      <span ng-if="errors.length>0">
+         <h2 class="has-error">Errors</h2>
+         <p ng-repeat="error in errors">{{error}}</p>
+      </span>
+   </div>
+   <div class="col-sm-1 col-md-1 col-lg-1"></div>
+</div>

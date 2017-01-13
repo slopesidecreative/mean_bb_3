@@ -1,0 +1,20 @@
+<div class="row">
+   <div class="col-sm-1 col-md-1 col-lg-1"></div>
+   <div class="col-sm-10 col-md-10 col-lg-10">
+      {{eC.controlValue}} {{eC.user.first_name}}<br/>
+      <form ng-submit = "eC.updateUser()">
+         <label for="first_name">First Name</label><br/>
+         <input type="text" name="first_name" ng-model = 'eC.user.first_name' placeholder = '{{eC.user.first_name}}'><br/>
+         <label for="last_name">Last Name</label><br/>
+         <input type="text" name="last_name" ng-model = 'eC.user.last_name' placeholder = '{{eC.user.last_name}}'><br/>
+         <label for="birthday">Birthday</label><br/>
+         <input type="date" name="birthday" ng-model = 'eC.user.created_birthday'  value="{{eC.user.created_birthday |  amDateFormat: 'YYYY-MM-DD'}}" required><br/>
+         <br/>
+         <input type="hidden" ng-model = 'eC.user._id' value = '{{eC.user._id}}'>
+         <input type="submit"  value="Update">
+      </form>
+      <br/>
+      <a ng-href = "#!/index"> Return to Index </a>
+   </div>
+   <div class="col-sm-1 col-md-1 col-lg-1"></div>
+</div>

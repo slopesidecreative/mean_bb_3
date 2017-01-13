@@ -1,0 +1,14 @@
+<div class="row">
+   <div class="col-sm-1 col-md-1 col-lg-1"><a href="#!/">Home</a> | <a href="/#!/posts/{{curPost._id}}">Back to Question</a></div>
+   <div class="col-sm-10 col-md-10 col-lg-10">
+      <h4>Add A Comment:</h4>
+      <form name="comment">
+         <label for="name">Name:</label><br/>
+         <input type="text" name="name" ng-model="newComment.commentby"><br/>
+         <label for="content">Comment:</label><br/>
+         <textarea name="content" rows="4" cols="40" ng-model="newComment.content"></textarea><br/>
+         <button type='submit' ng-click="addComment(post._id)">Add New Comment</button>
+      </form>
+   </div>
+   <div class="col-sm-1 col-md-1 col-lg-1"></div>
+</div>

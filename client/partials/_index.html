@@ -1,0 +1,66 @@
+<a href="/logout">Logout</a><br/>
+<!-- ROW ROW ROW ROW + + + + + + + + + + + + + + + + + + +  -->
+<div class="row">
+<div class="col-sm-1 col-md-1 col-lg-1"></div>
+<div class="col-sm-10 col-md-10 col-lg-10">
+   <div style="display:inline-block; width: 49%;">
+      <h2>Questions</h2>
+   </div>
+   <div style="display:inline-block; width: 49%;">
+      <a href="/#!/new/questions">Ask A Question!</a>
+   </div>
+   <hr/>
+   <label for="searchDate">Search</label>
+   <input type="text" ng-model="searchText"></input>
+   </span>
+   <hr/>
+   <table class="table table-striped" ng-if="posts">
+     <thead>
+       <tr>
+         <th ng-click="sortType = '_id';sortReverse=!sortReverse">
+            _ID
+            <span ng-show="sortType == '_id' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == '_id' && sortReverse" class="fa fa-caret-up"></span>
+         </th>
+         <th ng-click="sortType = 'created_at';sortReverse=!sortReverse">
+            Date Posted
+            <span ng-show="sortType == 'created_at' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'created_at' && sortReverse" class="fa fa-caret-up"></span>
+         </th>
+         <th ng-click="sortType = 'postedby';sortReverse=!sortReverse">
+            Posted By
+            <span ng-show="sortType == 'postedby' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'postedby' && sortReverse" class="fa fa-caret-up"></span>
+         </th>
+         <th ng-click="sortType = 'content';sortReverse=!sortReverse">
+            Question
+            <span ng-show="sortType == 'content' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'content' && sortReverse" class="fa fa-caret-up"></span>
+         </th>
+         <th ng-click="sortType = 'comments.length';sortReverse=!sortReverse">
+            Answer Count
+            <span ng-show="sortType == 'comments.length' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'comments.length' && sortReverse" class="fa fa-caret-up"></span>
+         </th>
+         <th>Action</th>
+         <th>Action</th>
+       </tr>
+     </thead>
+     <tbody>
+       <!-- THIS IS THE KEY FOR DOING THE FILTERING AND SORTING -->
+       <tr ng-repeat= "post in posts | filter: searchText | orderBy:sortType:sortReverse">
+         <td>{{post._id}}</td>
+         <td>{{post.created_at | amTimeAgo: 'YYYY-MM-DD HH:mm:ss'}} ago</td>
+         <td>{{post.postedby}}</td>
+         <td>{{post.content}}</td>
+         <td>{{post.comments.length}}</td>
+         <td ng-click="showPost(post._id)">Show</td>
+         <td ng-click="answerPost(post._id)">Answer</td>
+         <!-- <td><a href="/#!/question/{{post._id}}/new_answer">Answer</a></td> -->
+       </tr>
+   </tbody>
+   </table>
+</div>
+<div class="col-sm-1 col-md-1 col-lg-1"></div>
+</div>
+<!-- ROW ROW ROW ROW + + + + + + + + + + + + + + + + + + +  -->

@@ -1,0 +1,85 @@
+<div class="wrap">
+<div class="main container-fluid">
+
+<!-- HEADER -->
+<div class="row">
+   <div class="col-xs-2 col-md-2"></div>
+   <div class="col-xs-8 col-md-8">
+      <h2>Message Board</h2>
+      <hr/>
+   </div>
+   <div class="col-xs-2 col-md-2"></div>
+</div>
+
+<!-- ADD NEW POST -->
+<div class="row">
+   <div class="col-xs-2 col-md-2"></div>
+   <div class="col-xs-8 col-md-8">
+      <h3>Add Post:</h3>
+      <form name="post">
+         <label for="name">Name:</label><br/>
+         <input type="text" name="name" ng-model="newPost.postedby"><br/>
+         <label for="content">Post:</label><br/>
+         <textarea name="content" rows="4" cols="40" ng-model="newPost.content"></textarea><br/>
+         <button type='submit' ng-click="addPost()">Add New Post</button>
+      </form>
+   </div>
+   <div class="col-xs-2 col-md-2"></div>
+</div>
+
+<!-- SHOW POSTS AND COMMENTS -->
+
+<div class="row">
+   <div class="col-xs-2 col-md-2"></div>
+   <div class="col-xs-8 col-md-8">
+         <hr/>
+         <h3>Our Posts:</h3>
+         <hr/>
+         <ul style='list-style:none;' ng-repeat="post in posts">
+            <li style="font-size: 1.5em;font-weight:bold;font-style:italic;">"{{ post.content }}"</li>
+            <li style="padding-left:30px;">- {{ post.postedby }}</li>
+            <li style="padding-left:30px; padding-bottom:30px;">- {{ post.created_at }}</li>
+               <h4>Comments:</h4>
+               <table class="table table-striped">
+                  <tr ng-repeat="comment in post.comments">
+                     <td>{{comment.content}} | {{comment.commentby}}</td>
+                  </tr>
+                  <tr>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td><hr/></td>
+                  </tr>
+               </table>
+            <h4>Add A Comment:</h4>
+            <form name="comment">
+               <label for="name">Name:</label><br/>
+               <input type="text" name="name" ng-model="newComment.commentby"><br/>
+               <label for="content">Comment:</label><br/>
+               <textarea name="content" rows="4" cols="40" ng-model="newComment.content"></textarea><br/>
+               <!-- <input type="text" name="post_id" ng-model="newComment.post_id" value="{{post._id}}" ng-init="post._id">{{post._id}}<br/> -->
+               <button type='submit' ng-click="addComment(post._id)">Add New Comment</button>
+            </form>
+         </ul>
+         <hr/>
+   </div>
+   <div class="col-xs-2 col-md-2"></div>
+</div>
+
+<!-- ERRORS  + + + + + + + + + + + + + + + + + + -->
+<div class="row" ng-if="errors.length>0">
+   <div class="col-md-2"></div>
+   <div class="col-md-8">
+      <h3>ERRORS!</h3>
+      <ul style='list-style:none;'>
+         <li ng-repeat="error in errors">{{error}}</li>
+         <hr/>
+         <br/>
+         <hr/>
+      </ul>
+   </div>
+   <div class="col-md-2"></div>
+</div>
+
+</div> <!-- /container -->
+</div> <!-- /wrap -->

@@ -1,0 +1,18 @@
+<div class="row">
+   <div class="col-sm-1 col-md-1 col-lg-1">
+      <a href="#!/">Home</a>
+   </div>
+   <div class="col-sm-10 col-md-10 col-lg-10">
+
+      <h3>Ask Question:</h3>
+      <form name="post">
+         <label for="name">Name:</label><br/>
+         <input type="text" name="name" ng-model="newPost.postedby"><br/>
+         <label for="content">Question:</label><br/>
+         <textarea name="content" rows="4" cols="40" ng-model="newPost.content"></textarea><br/>
+         <button type='submit' ng-click="addPost()">Add New Question</button>
+      </form>
+
+   </div>
+   <div class="col-sm-1 col-md-1 col-lg-1"><a href="/logout">Logout</a></div>
+</div>

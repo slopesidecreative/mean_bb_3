@@ -1,0 +1,24 @@
+{
+  "name": "basic_mongoose_app",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "Erik Clineschmidt <eclineschmidt@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/slopesidecreative/mean_login",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-moment": "^1.0.1",
+    "angular-route": "^1.6.0",
+    "bootstrap": "^3.3.7",
+    "angular-cookies": "^1.6.0",
+    "font-awesome": "^4.7.0"
+  }
+}
