@@ -7,13 +7,23 @@ app.controller('pollsNewController', function($scope, sessionFactory, pollsFacto
    $scope.errors = [];
 
 /* LOCKDOWN + + + + + + + + + + + + + + +  */
-    sessionFactory.getCurUser(function(data){
-      console.log('Polls create controller got the current user: ',data.data.data.curUser);
-      $scope.cur_user = data.data.data.curUser;
-      if(!$scope.cur_user){
-         $location.url('/');
+
+sessionFactory.getCurUser(function(data){
+   //console.log('returned to client INDEX controller',data);
+   if(typeof(data.data) == 'string'){
+       $location.path('/');
+      }else{
+         console.log('got it!!', data);
+         $scope.cur_user = data;
       }
-   });
+});
+   //  sessionFactory.getCurUser(function(data){
+   //    console.log('Polls create controller got the current user: ',data.data.data.curUser);
+   //    $scope.cur_user = data.data.data.curUser;
+   //    if(!$scope.cur_user){
+   //       $location.url('/');
+   //    }
+   // });
 /* LOCKDOWN + + + + + + + + + + + + + + +  */
 
 $scope.addPoll = function(){
