@@ -68,6 +68,7 @@ app.factory('usersFactory', ['$http','$location', function($http,$location) {
       callback(users);
    };
    _this.getUser = function(callback){
+      console.log("user factory returning user: ",user);
       callback(user);
    };
 

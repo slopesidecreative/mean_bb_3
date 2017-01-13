@@ -8,8 +8,8 @@ app.controller('pollsNewController', function($scope, sessionFactory, pollsFacto
 
 /* LOCKDOWN + + + + + + + + + + + + + + +  */
     sessionFactory.getCurUser(function(data){
-      console.log('Polls create controller got the current user: ',data);
-      $scope.cur_user = data;
+      console.log('Polls create controller got the current user: ',data.data.data.curUser);
+      $scope.cur_user = data.data.data.curUser;
       if(!$scope.cur_user){
          $location.url('/');
       }
