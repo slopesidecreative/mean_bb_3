@@ -69,7 +69,11 @@ var PollsSchema = new mongoose.Schema({
       type: Number,
       required: true,
       default: 0
-   }
+   },
+   created_by: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+ }
   },
   { timestamps: {createdAt: 'created_at', updatedAt: 'updated_at'} });
 

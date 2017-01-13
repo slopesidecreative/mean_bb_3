@@ -8,8 +8,7 @@ app.controller('sessionController', function($scope, sessionFactory, usersFactor
 
    // set age requirement
    $scope.ageRequirement = moment().subtract(18, "years").format('YYYY-MM-DD');
-   console.log('ageRequirement',$scope.ageRequirement);
-
+   console.log('site for grown ups! ageRequirement',$scope.ageRequirement);
 
 
 /* LOCKDOWN + + + + + + + + + + + + + + +  */

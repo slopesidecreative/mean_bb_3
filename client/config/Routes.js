@@ -16,7 +16,13 @@ app.config(function($routeProvider) {
 
  })
 
-/* POSTS   -------------------------------- */
+/* POLLS   -------------------------------- */
+
+.when('/create', {
+  templateUrl: 'partials/postCreate.html',
+  controller: 'pollsNewController'
+
+})
 
 //  .when('/new/questions', {
 //    templateUrl: '/partials/postNew.html',

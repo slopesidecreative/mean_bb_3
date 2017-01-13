@@ -31,7 +31,32 @@ index: function (req, res){
          res.json(data);
       }
    })
-}
+},
+create: function(req,res){
+   console.log('Create POLL: ',req.body);
+   var poll = new Polls(req.body);
+   console.log('About to save: ', poll);
+   poll.save(function(err,newpoll){
+      if(err){
+         console.log('error',err);
+         //res.render('index', {title: 'you have errors!', errors: post.errors})
+         res.json({
+               errors: {
+                    users: {
+                        message: "Could not create poll!",
+                        kind: "what didn't work",
+                        path: "reference to the schema's name",
+                        value: "cause of the initial error"
+                    }
+               },
+               name: "Server error"
+            });
+      }else{
+         console.log('YEAH! POLL: ',newpoll);
+         res.json(newpoll);
+      }
+   })
+},
 //,
 
 

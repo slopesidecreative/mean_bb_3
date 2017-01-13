@@ -6,6 +6,7 @@ console.log('server -> routes.js is loading....');
 var session = require('../controllers/session.js');
 //console.log('session conroller: ', session);
 var Users =  require('../controllers/users.js');
+var Polls =  require('../controllers/polls.js');
 //console.log('Users conroller: ', Users);
 
 //var Posts =  require('../controllers/posts.js');
@@ -75,7 +76,12 @@ module.exports = function(app) {
          Users.delete(req,res);
       });
 
-/* MESSAGE BOARD ------------------------------------------------ */
+/* POLLS ------------------------------------------------ */
+
+app.post('/polls', function (req, res){
+   console.log('POLLS new route called');
+   Polls.create(req,res);
+});
 
       // // GET "/messages"
       // // Root - show all
