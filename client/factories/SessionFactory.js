@@ -12,12 +12,12 @@ app.factory('sessionFactory', function($http, $location){
          callback( {data:{ data: {curUser}}} );
       }else{
          console.log('there isnt one so get a user......');
-         $location.path('/');
-         // $http.get('/getcuruser').then(function(output){
-         //    curUser = output.data;
-         //    //console.log('curUser set in FACToRY',curUser);
-         //     callback(output);
-         // })
+         //$location.path('/');
+         $http.get('/getcuruser').then(function(output){
+            curUser = output.data;
+            //console.log('curUser set in FACToRY',curUser);
+             callback(output);
+         })
       }
     }
 
