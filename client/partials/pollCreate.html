@@ -24,7 +24,17 @@
 
          <button type='submit' ng-click="createPoll()">Create</button>
       </form>
-
    </div>
+   <!-- ERRORS  + + + + + + + + + + + + + + + + + + -->
+
+      <div ng-if="errors.length>0">
+         <h3>ERRORS!</h3>
+         <ul style='list-style:none;'>
+            <li ng-repeat="error in errors">{{error}}</li>
+            <hr/>
+            <br/>
+            <hr/>
+         </ul>
+      </div>
    <div class="col-sm-1 col-md-1 col-lg-1"></div>
 </div>

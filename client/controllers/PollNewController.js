@@ -31,10 +31,10 @@ $scope.createPoll = function(){
 
       // HANDLE ERRORS
       // - check for all other validations
-      if ( newPoll.hasOwnProperty('errors') ) {
-           for (var key in newPoll.errors) {
-              if (newPoll.errors.hasOwnProperty(key)) {
-                 var obj = newPoll.errors[key];
+      if ( newPoll.data.hasOwnProperty('errors') ) {
+           for (var key in newPoll.data.errors) {
+              if (newPoll.data.errors.hasOwnProperty(key)) {
+                 var obj = newPoll.data.errors[key];
                  for (var prop in obj) {
                     if (obj.hasOwnProperty(prop) && prop == 'message') {
                         //alert(obj[prop]);
