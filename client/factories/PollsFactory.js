@@ -36,6 +36,18 @@ app.factory('pollsFactory', function($http, $location){
    //    return curPostId;
    //  };
 
+
+   // VOTE + + + + + + + + + + + + + + + + + +
+   factory.vote = function(data,callback){
+         console.log('polls factory vote:',data, callback);
+         $http.post('/polls/vote',data).then(function(returned_data){
+            console.log('Client COMMENTS VOTE attempt to create comment vote returned: ', returned_data.data);
+            if (typeof(callback) == 'function'){
+              callback(returned_data.data);
+            }
+         });
+      }
+
 // INDEX + + + + + + + + + + + + + + + + + +
     factory.index = function(callback){
       //call this method if you want to update or set the friends variable
@@ -47,15 +59,20 @@ app.factory('pollsFactory', function($http, $location){
    };
 
 // SHOW + + + + + + + + + + + + + + + + + +
-  //  factory.show = function(_id,callback){
-  //   //console.log(' this.show -> get one friend by id');
-  //   $http.get('/posts/' + _id).then(function(returned_data){
-  //    //console.log('got back this one friend: ', returned_data.data);
-  //    curPost = returned_data.data;
-  //    post = returned_data.data;
-  //    callback(post);
-  //   });
-  // };
+   factory.show = function(_id,callback){
+    //console.log(' this.show -> get one friend by id');
+    $http.get('/polls/' + _id).then(function(returned_data){
+     console.log('got back this one poll: ', returned_data);
+
+     if(returned_data.data){
+        callback(returned_data.data);
+
+     }
+   //   curPoll = returned_data.data;
+   //   poll = returned_data.data;
+
+    });
+  };
 
 // CREATE + + + + + + + + + + + + + + + + + +
     factory.create = function(newpoll,callback){

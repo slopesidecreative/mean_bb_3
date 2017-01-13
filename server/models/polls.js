@@ -52,22 +52,18 @@ var PollsSchema = new mongoose.Schema({
   },
    option1_votes: {
       type: Number,
-      required: true,
       default: 0
    },
    option2_votes: {
       type: Number,
-      required: true,
       default: 0
    },
    option3_votes: {
       type: Number,
-      required: true,
       default: 0
    },
    option4_votes: {
       type: Number,
-      required: true,
       default: 0
    },
    created_by: {

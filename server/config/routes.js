@@ -88,6 +88,16 @@ app.get('/polls', function (req, res){
    Polls.index(req,res);
 });
 
+app.get('/polls/:id', function (req, res){
+   console.log('GET show /polls/:id ', req.params.id);
+   Polls.show(req,res);
+});
+
+app.post('/polls/vote', function (req, res){
+   console.log('SERVER!! VOTE POLLS ',req.body);
+   Polls.vote(req,res);
+});
+
       // // GET "/messages"
       // // Root - show all
       // app.get('/messages', function (req, res){

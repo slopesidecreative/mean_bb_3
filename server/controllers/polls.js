@@ -71,6 +71,125 @@ create: function(req,res){
       }
    })
 },
+
+show: function (req, res){
+   console.log('POLL->SHOW: this one:',req.params.id);
+
+   Polls.findOne({"_id":req.params.id})
+      .populate('created_by')
+      .exec(function(err, data) {
+        console.log('find ONE executed',err);
+         res.json(data);
+      });
+   },
+
+   vote: function(req,res){
+   //console.log('vote!',req.body);
+   var vote = 0;
+   vote = req.body.vote === true ? 1 : -1;
+
+   let option = req.body.option;
+
+   console.log('im increasing this option: ',req.body.option)
+
+   if(option == 'option1_votes'){
+      Polls.findByIdAndUpdate({ _id: req.body.id }, {$inc : { 'option1_votes' : 1}}, function (err, data) {
+      console.log('voted! success', data,err);
+      if(err){
+         res.json({
+                errors: {
+                     comments: {
+                         message: "Could not vote for this answer!",
+                         kind: "what didn't work",
+                         path: "reference to the schema's name",
+                         value: "cause of the initial error"
+                     }
+                },
+                name: "Server error"
+             });
+      }else{
+         console.log('#######!!!!!!!!!!!')
+         res.json({success:"true"});
+      }
+   })
+}
+if(option == 'option2_votes'){
+   Polls.findByIdAndUpdate({ _id: req.body.id }, {$inc : { 'option2_votes' : 1}}, function (err, data) {
+      console.log('voted! success', data,err);
+      if(err){
+         res.json({
+                errors: {
+                     comments: {
+                         message: "Could not vote for this answer!",
+                         kind: "what didn't work",
+                         path: "reference to the schema's name",
+                         value: "cause of the initial error"
+                     }
+                },
+                name: "Server error"
+             });
+      }else{
+         console.log('#######!!!!!!!!!!!')
+         res.json({success:"true"});
+      }
+   })
+}
+
+
+
+
+if(option == 'option3_votes'){
+   Polls.findByIdAndUpdate({ _id: req.body.id }, {$inc : { 'option3_votes' : 1}}, function (err, data) {
+      console.log('voted! success', data,err);
+      if(err){
+         res.json({
+                errors: {
+                     comments: {
+                         message: "Could not vote for this answer!",
+                         kind: "what didn't work",
+                         path: "reference to the schema's name",
+                         value: "cause of the initial error"
+                     }
+                },
+                name: "Server error"
+             });
+      }else{
+         console.log('#######!!!!!!!!!!!')
+         res.json({success:"true"});
+      }
+   })
+}
+
+
+
+if(option == 'option4_votes'){
+   Polls.findByIdAndUpdate({ _id: req.body.id }, {$inc : { 'option4_votes' : 1}}, function (err, data) {
+      console.log('voted! success', data,err);
+      if(err){
+         res.json({
+                errors: {
+                     comments: {
+                         message: "Could not vote for this answer!",
+                         kind: "what didn't work",
+                         path: "reference to the schema's name",
+                         value: "cause of the initial error"
+                     }
+                },
+                name: "Server error"
+             });
+      }else{
+         console.log('#######!!!!!!!!!!!')
+         res.json({success:"true"});
+      }
+   })
+}
+
+
+
+
+
+
+}
 //,
 
 
