@@ -6,7 +6,7 @@ function($scope, sessionFactory, $location, moment) {
    sessionFactory.getCurUser(function(data){
       //console.log('returned to client INDEX controller',data);
       if(typeof(data.data) == 'string'){
-          $location.path('/index');
+          $location.path('/');
          }else{
             $scope.cur_user = data;
          }

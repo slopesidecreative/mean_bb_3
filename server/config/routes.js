@@ -77,53 +77,53 @@ module.exports = function(app) {
 
 /* MESSAGE BOARD ------------------------------------------------ */
 
-      // GET "/messages"
-      // Root - show all
-      app.get('/messages', function (req, res){
-         console.log(' GET messages index /messages  ');
-         //Posts.index(req,res);
-      });
-
-      /* POST "/messages"
-         Create a new POST based on form submission.
-      */
-      app.post('/messages', function (req, res){
-         console.log(' POST messages create /messages  ');
-         //Posts.create(req,res);
-      });
-
-      /* GET /users/:id
-         Show: view a single user by ID.
-      */
-      app.get('/posts/:id', function (req, res){
-         console.log('GET show /posts/:id ', req.params.id);
-         //Posts.show(req,res);
-      });
-
-      /* POST "/messages/posts/:id/comments"
-         Create a new COMMENT based on form submission.
-      */
-      app.post('/messages/posts/:id/comments', function (req, res){
-         console.log('SERVER!! Create COMMENT ',req.body);
-         //Comments.create(req,res);
-      });
-
-      /* POST "/messages/comments/:id/comments"
-         Create a new COMMENT comment based on form submission.
-      */
-      app.post('/messages/comments/:id/comments', function (req, res){
-         console.log('SERVER!! Create COMMENT COMMENT!! ',req.body);
-         //Comments.add(req,res);
-      });
-
-
-      /* POST "/messages/vote"
-         Increment the vote count on a comment.
-      */
-      app.post('/messages/vote', function (req, res){
-         console.log('SERVER!! VOTE COMMENT ',req.body);
-         //Comments.vote(req,res);
-      });
+      // // GET "/messages"
+      // // Root - show all
+      // app.get('/messages', function (req, res){
+      //    console.log(' GET messages index /messages  ');
+      //    //Posts.index(req,res);
+      // });
+      //
+      // /* POST "/messages"
+      //    Create a new POST based on form submission.
+      // */
+      // app.post('/messages', function (req, res){
+      //    console.log(' POST messages create /messages  ');
+      //    //Posts.create(req,res);
+      // });
+      //
+      // /* GET /users/:id
+      //    Show: view a single user by ID.
+      // */
+      // app.get('/posts/:id', function (req, res){
+      //    console.log('GET show /posts/:id ', req.params.id);
+      //    //Posts.show(req,res);
+      // });
+      //
+      // /* POST "/messages/posts/:id/comments"
+      //    Create a new COMMENT based on form submission.
+      // */
+      // app.post('/messages/posts/:id/comments', function (req, res){
+      //    console.log('SERVER!! Create COMMENT ',req.body);
+      //    //Comments.create(req,res);
+      // });
+      //
+      // /* POST "/messages/comments/:id/comments"
+      //    Create a new COMMENT comment based on form submission.
+      // */
+      // app.post('/messages/comments/:id/comments', function (req, res){
+      //    console.log('SERVER!! Create COMMENT COMMENT!! ',req.body);
+      //    //Comments.add(req,res);
+      // });
+      //
+      //
+      // /* POST "/messages/vote"
+      //    Increment the vote count on a comment.
+      // */
+      // app.post('/messages/vote', function (req, res){
+      //    console.log('SERVER!! VOTE COMMENT ',req.body);
+      //    //Comments.vote(req,res);
+      // });
 
 
 

@@ -11,14 +11,7 @@ app.controller('sessionController', function($scope, sessionFactory, usersFactor
    console.log('ageRequirement',$scope.ageRequirement);
 
 
-/* LOCKDOWN + + + + + + + + + + + + + + +  */
-    sessionFactory.getCurUser(function(data){
-      //console.log('returned to client session controller',data);
-      $scope.cur_user = data;
-      if($scope.cur_user){
-         $location.url('/index');
-      }
-   });
+
 /* LOCKDOWN + + + + + + + + + + + + + + +  */
 
     $scope.login = function(){
@@ -32,7 +25,7 @@ app.controller('sessionController', function($scope, sessionFactory, usersFactor
                $scope.user = data.data;
              }
              if(data.data.status){
-                     $location.url('/');
+                     $location.url('/dashboard');
               }
            }
         )

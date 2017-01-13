@@ -3,7 +3,7 @@ console.log('mongoose.js loading..');
 var mongoose      =     require('mongoose');
 var fs            =     require('fs');
 var path          =     require('path');
-var dburi         =     'mongodb://localhost/bbelt_test_2';
+var dburi         =     'mongodb://localhost/blackbelt_success';
 var root          =     __dirname;
 var models_path   =     path.join(root, './../models');
 var reg           =     new RegExp( ".js$", "i" );

@@ -3,14 +3,14 @@ app.config(function($routeProvider) {
   $routeProvider
 
 /* ROOT   ----------------- */
-   .when('/', {
+   .when('/dashboard', {
       // show all
      templateUrl: '/partials/index.html',
      controller: 'indexController'
    })
 
 /* LOGIN REGSISTRATION   -------------------------------- */
- .when('/index', {
+ .when('/', {
    templateUrl: 'partials/dashboard.html',
    controller: 'sessionController'
 
