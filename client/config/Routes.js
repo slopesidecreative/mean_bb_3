@@ -24,6 +24,11 @@ app.config(function($routeProvider) {
 
 })
 
+.when('/post/:id', {
+  templateUrl: '/partials/pollShow.html',
+  controller: 'pollShowController'
+})
+
 //  .when('/new/questions', {
 //    templateUrl: '/partials/postNew.html',
 //    controller: 'postsNewController',

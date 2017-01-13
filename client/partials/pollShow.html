@@ -3,21 +3,23 @@
 <div class="row">
    <div class="col-sm-1 col-md-1 col-lg-1"></div>
    <div class="col-sm-10 col-md-10 col-lg-10">
+      <h3>{{poll.question}}</th>
+      Click the Vote button to choose one!
 
       <table class="table table-striped" ng-if="polls">
         <thead>
           <tr>
-            <th>Question</th>
-            <th>Date Posted</th>
+            <th>Option</th>
+            <th>Current Count</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat= "poll in polls  | orderBy:'-created_at' ">
-            <td><a href="/#!/poll/{{poll._id}}">{{poll.question}}</a></td>
-            <td>{{poll.created_at | amDateFormat: 'YYYY-MM-DD'}}</td>
-            <td ng-if="poll.created_by._id == cur_user._id" ng-click="deletePoll(poll._id)">DELETE</td>
-          </tr>
+          <tr>
+             <td>{{post.question}}</td>
+            <td>votes: {{comment.votes}}</td>
+          <td><span ng-if="allowVoting"><span ng-click="vote(true,comment._id)"> LIKE</span></span></td>
+        </tr>
       </tbody>
       </table>
 
