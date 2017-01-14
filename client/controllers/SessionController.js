@@ -59,7 +59,7 @@ app.controller('sessionController', function($scope, sessionFactory, usersFactor
           // - if no errors, the user has been created
           if($scope.errors.length == 0){
              $scope.user = {};
-             $location.path("/");
+             $location.path("/dashboard");
           }
        });
     }

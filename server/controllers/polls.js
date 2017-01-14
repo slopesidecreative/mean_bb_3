@@ -184,11 +184,31 @@ if(option == 'option4_votes'){
    })
 }
 
-
-
-
-
-
+},
+delete: function (req, res){
+   console.log('SERVER: POLL->DESTROY');
+   Polls.remove(
+      {
+         _id: req.params.id
+      },
+      function(err, data) {
+         if(err){
+            console.log('error ${err}');
+            res.json({
+                   errors: {
+                        users: {
+                            message: "Could not delete user!",
+                            kind: "what didn't work",
+                            path: "reference to the schema's name",
+                            value: "cause of the initial error"
+                        }
+                   },
+                   name: "Server error"
+                });
+         }else{
+            res.json({"message": "poll deleted"});
+         }
+   })
 }
 //,
 

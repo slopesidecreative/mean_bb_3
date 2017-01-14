@@ -74,6 +74,24 @@ app.factory('pollsFactory', function($http, $location){
     });
   };
 
+
+ factory.delete = function(id,cb){
+    console.log('factory delete called',id);
+    $http.get('/delete/' + id).then(function(returned_data){
+
+      console.log('delte and retured;',returned_data);
+      cb(returned_data);
+
+
+   //   //console.log('Client POLLS - attempt to create new poLL returned: ', returned_data.data);
+   //   if (typeof(callback) == 'function'){
+   //      console.log('CLIENT FACTORY DEL',returned_data);
+   //   //   curPoLL = returned_data.data;
+   //     callback(returned_data);
+   //   }
+   });
+}
+
 // CREATE + + + + + + + + + + + + + + + + + +
     factory.create = function(newpoll,callback){
       console.log('CLIENT POLLS FACTORY - MAKING NEW....',newpoll);

@@ -98,6 +98,11 @@ app.post('/polls/vote', function (req, res){
    Polls.vote(req,res);
 });
 
+app.get('/delete/:id', function (req, res){
+   console.log('SERVER!! delete POLLS ',req.params.id);
+   Polls.delete(req,res);
+});
+
       // // GET "/messages"
       // // Root - show all
       // app.get('/messages', function (req, res){

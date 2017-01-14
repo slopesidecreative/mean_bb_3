@@ -16,7 +16,7 @@
           <tr ng-repeat= "poll in polls  | orderBy:'-created_at' ">
             <td><a href="/#!/poll/{{poll._id}}">{{poll.question}}</a></td>
             <td>{{poll.created_at | amDateFormat: 'YYYY-MM-DD'}}</td>
-            <td ng-if="poll.created_by._id == cur_user._id" ng-click="deletePoll(poll._id)">DELETE</td>
+            <td ng-click="deletePoll(poll._id)">DELETE</td>
           </tr>
       </tbody>
       </table>

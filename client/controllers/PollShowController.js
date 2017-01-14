@@ -39,6 +39,26 @@ function($scope,sessionFactory,pollsFactory, $location, rParams) {
     })
   }
 
+
+  $scope.delete = function(id){
+     pollsFactory.delete(id,function(data){
+        console.log('POST DELETE: ',data);
+        if ( data.hasOwnProperty('errors') ) {
+           // handle errors
+           console.log('ERRORS', data.errors);
+           alert('Error! Could not delete!');
+           $location.path("/dashboard");
+        }else{
+           // SUCCESS !!
+           console.log('returned all the way, after voting ',data);
+           //
+           $scope.getPoll();
+        }
+
+     })
+ }
+
+
   // VOTING + + + + + + + + + + + + + + + + + + + + + + +
   $scope.vote = function(vote,option){
      //console.log("vote!",vote,_id);

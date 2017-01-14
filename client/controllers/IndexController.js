@@ -36,12 +36,13 @@ var index = function() {
 
 /* POSTS + + + + + + + + + + + + + + + + + + + + + + + + + + +  */
 
-// $scope.deletePost = function(_id){
-//    postsFactory.delete(_id, function redirectAfterDelete(data){
-//       //console.log('User Deleted: ',data );
-//       index();
-//    });
-// }
+$scope.deletePoll = function(_id){
+   console.log('DEL controller clall');
+   pollsFactory.delete(_id, function redirectAfterDelete(data){
+      console.log('j!!!!!!User Deleted: ',data );
+      index();
+   });
+}
 
 // $scope.showPost = function(_id){
 //    $location.path('/posts/' + _id );
